@@ -28,12 +28,15 @@ function Todo({ todos, setTodos, todo }: Props) {
   const handelEdit = (e: React.FormEvent, id: number) => {
     e.preventDefault();
     setTodos(
-      todos.map((todo) => (todo.id === id ? { ...todo, todo: editTodo } : todo))
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, todo: editTodo, catagories: editCat } : todo
+      )
     );
     setEdit(false);
   };
   const [edit, setEdit] = useState<boolean>(false);
   const [editTodo, setEditTodo] = useState(todo.todo);
+  const [editCat, setEditCat] = useState(todo.catagories);
   return (
     <form onSubmit={(e) => handelEdit(e, todo.id)}>
       <div className="flex justify-between w-400">
@@ -46,7 +49,7 @@ function Todo({ todos, setTodos, todo }: Props) {
                 name="price"
                 id="price"
                 placeholder="add todo's"
-                className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="py-2 text-sm text-white bg-gray-900  pl-10 focus:outline-none focus:bg-white focus:text-gray-900"
                 autoComplete="off"
                 required
                 value={editTodo}
@@ -54,10 +57,18 @@ function Todo({ todos, setTodos, todo }: Props) {
                 autoFocus
               />
               <div className="absolute inset-y-0 right-0 flex items-center">
-                <button
-                  type="submit"
-                  className="text-gray-500 text-4xl ml-6 mr-4 sm:text-sm"
+                <select
+                  onChange={(e) => setEditCat(e.target.value)}
+                  value={editCat}
+                  id="currency"
+                  name="currency"
+                  className="h-full rounded-md border-0 bg-transparent py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm"
                 >
+                  <option disabled>Catagories</option>
+                  <option>Personal</option>
+                  <option>Work</option>
+                </select>
+                <button type="submit" className="text-gray-500 sm:text-sm">
                   <MdOutlineDone />
                 </button>
               </div>
@@ -94,6 +105,7 @@ function Todo({ todos, setTodos, todo }: Props) {
               />
             </div>
           )}
+          <p>{todo.catagories}</p>
         </div>
       </div>
     </form>
