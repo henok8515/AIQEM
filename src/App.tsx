@@ -14,12 +14,17 @@ function App() {
     }
   };
   const [input, setInput] = useState<string>("");
+  const [cat, setCat] = useState<string>("");
+
   const [todos, setTodos] = useState<TodoModel[]>(getLocalItemes());
   const addTodo = (e: React.FormEvent) => {
     e.preventDefault();
     // const value = (e.target as HTMLInputElement).value;
     if (input) {
-      setTodos([...todos, { todo: input, id: Date.now(), isDone: false }]);
+      setTodos([
+        ...todos,
+        { todo: input, id: Date.now(), isDone: false, catagories: cat },
+      ]);
       setInput("");
     }
   };
@@ -33,7 +38,13 @@ function App() {
   return (
     <div className="flex justify-center flex-col items-center mt-6">
       <h1 className="font-serif text-5xl">Add your task</h1>
-      <InputField input={input} addTodo={addTodo} setInput={setInput} />
+      <InputField
+        cat={cat}
+        setCat={setCat}
+        input={input}
+        addTodo={addTodo}
+        setInput={setInput}
+      />
       <ListTodo todos={todos} setTodos={setTodos} />
     </div>
   );
