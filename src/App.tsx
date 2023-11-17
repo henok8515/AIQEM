@@ -16,8 +16,9 @@ function App() {
       setInput("");
     }
   };
+
   return (
-    <div>
+    <div className="flex justify-center flex-col items-center mt-6">
       <InputField input={input} addTodo={addTodo} setInput={setInput} />
       <ListTodo input={input} todos={todos} setTodos={setTodos} />
     </div>
