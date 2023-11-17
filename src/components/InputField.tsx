@@ -17,23 +17,21 @@ function InputField({ input, setInput, addTodo }: Props) {
           height: "100px",
         }}
       >
-        <input
-          placeholder="add todo's"
-          type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          className="py-2 text-sm text-white bg-gray-900 rounded-md pl-10 focus:outline-none focus:bg-white focus:text-gray-900"
-          autoComplete="off"
-        />
-
-        <button
-          style={{
-            padding: "20px",
-            borderRadius: "0px 20px 20px 0px",
-          }}
-        >
-          Add
-        </button>
+        <div>
+          <div className="relative mt-2 rounded-md shadow-sm">
+            <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3"></div>
+            <input
+              type="text"
+              name="price"
+              id="price"
+              placeholder="add todo's"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              className="py-2 text-sm text-white bg-gray-900  pl-10 focus:outline-none focus:bg-white focus:text-gray-900"
+              autoComplete="off"
+            />
+          </div>
+        </div>
       </form>
     </div>
   );

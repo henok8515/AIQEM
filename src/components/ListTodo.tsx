@@ -4,7 +4,6 @@ import { TodoModel } from "./model";
 import Todo from "./Todo";
 interface Props {
   todos: TodoModel[];
-  input: string;
   setTodos: React.Dispatch<React.SetStateAction<TodoModel[]>>;
 }
 const ListTodo = ({ todos, setTodos }: Props) => {
