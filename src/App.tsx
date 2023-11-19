@@ -24,9 +24,7 @@ function App() {
   }, [todos])
   return (
     <div className="flex  h-screen overflow-hidden flex-col items-center pt-6">
-      <h1 className=" text-4xl sm:text-3xl md:text-3xl mt-2 ">
-        Aԃԃ Yσυɾ Tσԃσ'ʂ
-      </h1>
+      <h1 className=" sm:text-5xl text-4xl  text-2xl mt-2 ">Aԃԃ Yσυɾ Tσԃσ'ʂ</h1>
       <Form
         catagories={catagories}
         setCatagories={setCatagories}
