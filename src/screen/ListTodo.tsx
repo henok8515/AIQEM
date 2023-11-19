@@ -1,7 +1,8 @@
 import React from "react";
-import { TodoModel } from "./model";
+import { TodoModel } from "../components/model";
 
 import Todo from "./Todo";
+import EmptyTodoBanner from "../components/EmptyTodoBanner";
 interface Props {
   todos: TodoModel[];
   setTodos: React.Dispatch<React.SetStateAction<TodoModel[]>>;
@@ -10,9 +11,7 @@ const ListTodo = ({ todos, setTodos }: Props) => {
   return (
     <div>
       {todos.length === 0 ? (
-        <h1 className="mt-6 sm:text-1xl flex flex-wrap text-center text-2xl capitalize opacity-50">
-          bro put some task's don't be lazy!!!
-        </h1>
+        <EmptyTodoBanner />
       ) : (
         todos
           .slice()

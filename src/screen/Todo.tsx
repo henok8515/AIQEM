@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { TodoModel } from "./model";
-import "react-toastify/dist/ReactToastify.css";
+import React, { useState } from 'react'
+import { TodoModel } from '../components/model'
+
 interface Props {
-  todos: TodoModel[];
-  todo: TodoModel;
-  setTodos: React.Dispatch<React.SetStateAction<TodoModel[]>>;
+  todos: TodoModel[]
+  todo: TodoModel
+  setTodos: React.Dispatch<React.SetStateAction<TodoModel[]>>
 }
 function Todo({ todos, setTodos, todo }: Props) {
   const handleDone = (id: number) => {
@@ -12,34 +12,34 @@ function Todo({ todos, setTodos, todo }: Props) {
       todos.map((todo) =>
         todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
       )
-    );
-    console.log(id);
-  };
+    )
+    console.log(id)
+  }
 
   const handleDelete = (id: number) => {
-    if (window.confirm("Are you sure do you want to delete")) {
+    if (window.confirm('Are you sure do you want to delete')) {
       // Save it!
-      setTodos(todos.filter((todo) => todo.id !== id));
-      console.log(id);
+      setTodos(todos.filter((todo) => todo.id !== id))
+      console.log(id)
     } else {
       // Do nothing!
     }
-  };
+  }
   const handelEdit = (e: React.FormEvent, id: number) => {
-    e.preventDefault();
+    e.preventDefault()
     setTodos(
       todos.map((todo) =>
         todo.id === id ? { ...todo, todo: editTodo, catagories: editCat } : todo
       )
-    );
-    setEdit(false);
-  };
-  const [edit, setEdit] = useState<boolean>(false);
-  const [editTodo, setEditTodo] = useState(todo.todo);
-  const [editCat, setEditCat] = useState(todo.catagories);
+    )
+    setEdit(false)
+  }
+  const [edit, setEdit] = useState<boolean>(false)
+  const [editTodo, setEditTodo] = useState(todo.todo)
+  const [editCat, setEditCat] = useState(todo.catagories)
   return (
     <form onSubmit={(e) => handelEdit(e, todo.id)}>
-      <div className="flex  w-screen mt-7 justify-center items-start w-400">
+      <div className="flex  w-screen mt-4   justify-center items-start w-400">
         {edit ? (
           <div>
             <div className="relative mt-2 rounded-md shadow-sm">
@@ -57,23 +57,23 @@ function Todo({ todos, setTodos, todo }: Props) {
                 autoFocus
               />
               <div className="absolute inset-y-0 right-0 flex items-center">
-                <select
-                  required
-                  onChange={(e) => setEditCat(e.target.value)}
-                  value={editCat}
-                  id="currency"
-                  name="currency"
-                  className="h-full rounded-md border-0 bg-transparent py-0 pl-2 pr-7 flex justify-around text-black  focus:ring-inset focus:ring-indigo-600 sm:text-sm"
-                >
-                  <option value="">Catagories</option>
-                  <option value="Personal">Personal</option>
-                  <option value="Work">Work</option>
-                  <option value="School">Schooll</option>
-                </select>
+                <div>
+                  <select
+                    required
+                    onChange={(e) => setEditCat(e.target.value)}
+                    value={editCat}
+                    id="currency"
+                    name="currency"
+                    className="h-full rounded-md border-0 bg-transparent py-0 pl-2 pr-7 flex justify-around text-black  focus:ring-inset focus:ring-indigo-600 sm:text-sm">
+                    <option value="">Catagories</option>
+                    <option value="Personal">Personal</option>
+                    <option value="Work">Work</option>
+                    <option value="School">Schooll</option>
+                  </select>
+                </div>
                 <button
                   type="submit"
-                  className="text-gray-500 pr-3 px-5 sm:text-sm"
-                >
+                  className="text-gray-500 pr-3 px-5 sm:text-sm">
                   <svg
                     className="h-6 w-6 text-black hover:text-green-700"
                     viewBox="0 0 24 24"
@@ -81,9 +81,7 @@ function Todo({ todos, setTodos, todo }: Props) {
                     stroke="currentColor"
                     stroke-width="2"
                     stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    {" "}
+                    stroke-linejoin="round">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
                 </button>
@@ -94,16 +92,14 @@ function Todo({ todos, setTodos, todo }: Props) {
           <div
             className={
               !todo.isDone
-                ? " bg-blue-500  text-black flex justify-between items-center sm:w-screen sm:m-5  w-3/4 md:w-3/4 md:bg-green-700 text-startbg-blue-500  font-semibold py-3 px-1 border border-blue-500 hover:border-transparent rounded"
-                : " sm:flex bg-green-700 line-through  text-white flex justify-between items-center sm:w-screen sm:m-5  w-3/4 md:w-3/4 md:bg-green-700 text-startbg-blue-500  font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded"
-            }
-          >
+                ? ' bg-blue-500  text-black text-3xl flex justify-between items-center sm:w-screen   w-3/4 md:w-3/4 text-startbg-blue-500  font-semibold py-3 px-1 border border-blue-500 hover:border-transparent rounded'
+                : ' sm:flex bg-green-700 line-through  text-white flex justify-between items-center sm:w-screen   w-3/4 md:w-3/4  text-startbg-blue-500  font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded'
+            }>
             <li
               style={{
-                textDecoration: todo.isDone ? "line-through" : "none",
+                textDecoration: todo.isDone ? 'line-through' : 'none',
               }}
-              className="font-serif text-2xl capitalize sm:text-xs"
-            >
+              className="font-serif text-2xl capitalize sm:text-xs">
               {todo.todo}
               {todo.isDone ? (
                 <button className="bg-blue-500 ml-3 text-white font-thin py-1 px-2 rounded">
@@ -119,8 +115,7 @@ function Todo({ todos, setTodos, todo }: Props) {
                     className="h-6 w-6 sm:text-xs text-black hover:text-red-600"
                     fill="none"
                     viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
+                    stroke="currentColor">
                     <path
                       stroke-linecap="round"
                       stroke-linejoin="round"
@@ -128,11 +123,11 @@ function Todo({ todos, setTodos, todo }: Props) {
                       d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
                     />
                   </svg>
-                  <svg className="h-3 w-3 text-black"></svg>{" "}
+                  <svg className="h-3 w-3 text-black"></svg>{' '}
                   <svg
                     onClick={() => {
                       if (!edit && !todo.isDone) {
-                        setEdit(!edit);
+                        setEdit(!edit)
                       }
                     }}
                     className="hover:text-green-600 "
@@ -144,9 +139,8 @@ function Todo({ todos, setTodos, todo }: Props) {
                     stroke="currentColor"
                     stroke-width="2"
                     stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d="M12 20h9" />{" "}
+                    stroke-linejoin="round">
+                    <path d="M12 20h9" />{' '}
                     <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
                   </svg>
                   <svg
@@ -157,17 +151,15 @@ function Todo({ todos, setTodos, todo }: Props) {
                     stroke="currentColor"
                     stroke-width="2"
                     stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    {" "}
+                    stroke-linejoin="round">
+                    {' '}
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
                 </div>
                 {editTodo ? (
                   <button
                     type="button"
-                    className="sm:w-20 sm:text-xs text-white w-40 no-underline bg-gray-800  focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
-                  >
+                    className="sm:w-20 sm:text-xs text-white w-40 no-underline bg-gray-800  focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
                     {todo.catagories}
                   </button>
                 ) : null}
@@ -177,7 +169,7 @@ function Todo({ todos, setTodos, todo }: Props) {
         )}
       </div>
     </form>
-  );
+  )
 }
 
-export default Todo;
+export default Todo
