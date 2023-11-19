@@ -10,8 +10,8 @@ const ListTodo = ({ todos, setTodos }: Props) => {
   return (
     <div>
       {todos.length === 0 ? (
-        <h1 className="mt-6 text-3xl capitalize opacity-50">
-          bro put some task don't be lazy!!!
+        <h1 className="mt-6 sm:text-1xl flex flex-wrap text-center text-2xl capitalize opacity-50">
+          bro put some task's don't be lazy!!!
         </h1>
       ) : (
         todos
