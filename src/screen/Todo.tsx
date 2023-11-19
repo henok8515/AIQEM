@@ -97,7 +97,7 @@ function Todo({ todos, setTodos, todo }: Props) {
               style={{
                 textDecoration: todo.isDone ? 'line-through' : 'none',
               }}
-              className="font-serif text-sm sm:text-2xl font-thin capitalize ">
+              className="font-serif  sm:text-3xl text-xs font-thin capitalize ">
               {todo.todo}
               {todo.isDone ? (
                 <button className="bg-blue-500 ml-3 text-white font-thin py-1 px-2 rounded">
@@ -157,7 +157,7 @@ function Todo({ todos, setTodos, todo }: Props) {
                 {editTodo ? (
                   <button
                     type="button"
-                    className="sm:w-20 sm:text-xs text-white w-40 no-underline bg-gray-800  focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+                    className=" text-xs  sm:text-xs text-white w-30 sm:w-56 no-underline bg-gray-800  focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
                     {todo.catagories}
                   </button>
                 ) : null}
