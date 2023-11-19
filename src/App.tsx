@@ -27,6 +27,7 @@ function App() {
         { todo: input, id: Date.now(), isDone: false, catagories: cat },
       ]);
       setInput("");
+      addMode;
     }
   };
 
@@ -38,7 +39,7 @@ function App() {
 
   return (
     <div className="flex  h-screen overflow-hidden flex-col items-center pt-6">
-      <h1 className=" text-6xl sm:text-3xl md:text-6xl mt-2 ">
+      <h1 className=" text-6xl sm:text-3xl md:text-3xl mt-2 ">
         Aԃԃ Yσυɾ Tσԃσ'ʂ
       </h1>
       <InputField
@@ -47,7 +48,6 @@ function App() {
         input={input}
         addTodo={addTodo}
         setInput={setInput}
-        addMode={addMode}
         setAddMode={setAddMode}
       />
       <ListTodo todos={todos} setTodos={setTodos} />
