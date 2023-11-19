@@ -90,8 +90,8 @@ function Todo({ todos, setTodos, todo }: Props) {
           <div
             className={
               !todo.isDone
-                ? ' bg-blue-500   text-black  flex justify-between items-center sm:w-screen   w-3/4 md:w-3/4 text-startbg-blue-500  font-semibold py-3 px-1 border border-blue-500 hover:border-transparent rounded'
-                : ' sm:flex bg-green-700 line-through  text-white flex justify-between items-center sm:w-screen   w-3/4 md:w-3/4  text-startbg-blue-500  font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded'
+                ? ' bg-blue-500   text-black  flex justify-between items-center   w-screen md:w-3/4 text-startbg-blue-500  font-semibold py-3 px-1 border border-blue-500 hover:border-transparent rounded'
+                : ' sm:flex bg-green-700 line-through  text-white flex justify-between items-center w-screen   w-3/4 md:w-3/4  text-startbg-blue-500  font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded'
             }>
             <li
               style={{

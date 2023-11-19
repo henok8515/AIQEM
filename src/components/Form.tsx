@@ -10,7 +10,7 @@ interface Props {
 }
 function Form({ input, setInput, addTodo, catagories, setCatagories }: Props) {
   return (
-    <form className="flex w-screen justify-center mt-24 mb" onSubmit={addTodo}>
+    <form className="flex  w-screen justify-center mt-10 mb" onSubmit={addTodo}>
       <div className="flex  justify-center">
         <select
           onChange={(e) => setCatagories(e.target.value)}
@@ -18,7 +18,7 @@ function Form({ input, setInput, addTodo, catagories, setCatagories }: Props) {
           id="subject"
           name="subject"
           required
-          className="w-full border sm:w-28 text-sm border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700">
+          className=" border w-28 sm:w-28 text-sm border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-700">
           <option value="">catagories</option>
           <option value="Personal">Personal</option>
           <option value="Work">Work </option>
@@ -29,7 +29,7 @@ function Form({ input, setInput, addTodo, catagories, setCatagories }: Props) {
           <input
             type="search"
             id="search-dropdown"
-            className="block p-4 w-96 z-20 sm:w-60 text-sm text-gray-900 bg-gray-50 rounded-e-lg rounded-s-gray-100 rounded-s-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
+            className="block p-4 w-96 z-20 sm:w-60 w-56 text-sm text-gray-900 bg-gray-50 rounded-e-lg rounded-s-gray-100 rounded-s-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
             required
             name="message"
             value={input}
