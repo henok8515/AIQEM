@@ -13,9 +13,7 @@ function Todo({ todos, setTodos, todo }: Props) {
         todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
       )
     )
-    console.log(id)
   }
-
   const handleDelete = (id: number) => {
     if (window.confirm('Are you sure do you want to delete')) {
       // Save it!
@@ -92,14 +90,14 @@ function Todo({ todos, setTodos, todo }: Props) {
           <div
             className={
               !todo.isDone
-                ? ' bg-blue-500  text-black text-3xl flex justify-between items-center sm:w-screen   w-3/4 md:w-3/4 text-startbg-blue-500  font-semibold py-3 px-1 border border-blue-500 hover:border-transparent rounded'
+                ? ' bg-blue-500   text-black  flex justify-between items-center sm:w-screen   w-3/4 md:w-3/4 text-startbg-blue-500  font-semibold py-3 px-1 border border-blue-500 hover:border-transparent rounded'
                 : ' sm:flex bg-green-700 line-through  text-white flex justify-between items-center sm:w-screen   w-3/4 md:w-3/4  text-startbg-blue-500  font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded'
             }>
             <li
               style={{
                 textDecoration: todo.isDone ? 'line-through' : 'none',
               }}
-              className="font-serif text-2xl capitalize sm:text-xs">
+              className="font-serif text-sm sm:text-2xl font-thin capitalize ">
               {todo.todo}
               {todo.isDone ? (
                 <button className="bg-blue-500 ml-3 text-white font-thin py-1 px-2 rounded">
