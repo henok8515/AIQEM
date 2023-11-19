@@ -15,6 +15,7 @@ function App() {
   };
   const [input, setInput] = useState<string>("");
   const [cat, setCat] = useState<string>("");
+  const [addMode, setAddMode] = useState<boolean>(false);
 
   const [todos, setTodos] = useState<TodoModel[]>(getLocalItemes());
   const addTodo = (e: React.FormEvent) => {
@@ -36,14 +37,18 @@ function App() {
   }, [todos]);
 
   return (
-    <div className="flex justify-center flex-col items-center mt-6">
-      <h1 className="font-serif text-5xl">Add your task</h1>
+    <div className="flex  h-screen overflow-hidden flex-col items-center pt-6">
+      <h1 className=" text-6xl sm:text-3xl md:text-6xl mt-2 ">
+        Aԃԃ Yσυɾ Tσԃσ'ʂ
+      </h1>
       <InputField
         cat={cat}
         setCat={setCat}
         input={input}
         addTodo={addTodo}
         setInput={setInput}
+        addMode={addMode}
+        setAddMode={setAddMode}
       />
       <ListTodo todos={todos} setTodos={setTodos} />
     </div>
