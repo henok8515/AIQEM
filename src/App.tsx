@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Form from './components/Form'
 import ListTodo from './screen/ListTodo'
 import { TodoModel } from './components/model'
+
 import { setLocalstorage, getLocalItems } from './lib/storage'
 import './app.css'
 function App() {
@@ -24,7 +25,7 @@ function App() {
     setLocalstorage(todos)
   }, [todos])
   return (
-    <div className="flex  h-screen overflow-hidden flex-col items-center pt-6">
+    <div className=" bg-slate-100  flex  h-screen overflow-hidden flex-col items-center pt-6">
       <h1 className=" sm:text-5xl text-4xl  text-2xl mt-2 ">Aԃԃ Yσυɾ Tσԃσ'ʂ</h1>
       <Form
         catagories={catagories}
