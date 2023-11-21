@@ -3,6 +3,7 @@ import Form from './components/Form'
 import ListTodo from './screen/ListTodo'
 import { TodoModel } from './components/model'
 import { setLocalstorage, getLocalItems } from './lib/storage'
+import './app.css'
 function App() {
   const [input, setInput] = useState<string>('')
   const [catagories, setCatagories] = useState<string>('')
