@@ -82,14 +82,14 @@ function Todo({ todos, setTodos, todo }: Props) {
           <div
             className={
               !todo.isDone
-                ? ' bg-blue-900  text-gray-50  flex justify-between items-center m-1   w-screen md:w-3/4 text-startbg-blue-500  font-semibold py-3 px-1 border border-blue-500 hover:border-transparent rounded'
-                : ' sm:flex bg-green-700 line-through  text-white flex justify-between items-center w-screen   w-3/4 md:w-3/4  text-startbg-blue-500  font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded'
+                ? ' bg-blue-900  text-gray-50  flex justify-between items-center m-1  mt-2  w-screen md:w-3/4 text-startbg-blue-500  font-semibold py-3 px-1 border border-blue-500 hover:border-transparent rounded'
+                : ' sm:flex bg-green-700 line-through mt-2  text-white flex justify-between items-center w-screen   w-3/4 md:w-3/4  text-startbg-blue-500  font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded'
             }>
             <p
               style={{
                 textDecoration: todo.isDone ? 'line-through' : 'none',
               }}
-              className="font-serif ml-3  sm:text-3xl text-lg font-thin capitalize ">
+              className="font-serif ml-3  sm:text-2xl text-sm text-lg font-thin capitalize ">
               {todo.todo}
               {todo.isDone ? (
                 <button className="bg-blue-500 ml-6  sm:text-2xl text-white font-thin py-1 px-2 text-sm rounded">
